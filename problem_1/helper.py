@@ -23,7 +23,39 @@ def DBexecuteMany(database, sql, values):
     connectorErrors(err)
   conn.close()
 
-def queryDB(database, sql):
+def DBexecute(database, sql):
+  conn = mysql.connector.connect(
+    host='localhost',
+    user=config.username,
+    passwd=config.passwd,
+    auth_plugin='mysql_native_password',
+    database=database
+  )
+  mycursor = conn.cursor()
+  try:
+    mycursor.execute(sql)
+    conn.commit()
+  except mysql.connector.Error as err:
+    connectorErrors(err)
+  conn.close()
+
+
+def DBinit(database, sql):
+  conn = mysql.connector.connect(
+    host='localhost',
+    user=config.username,
+    passwd=config.passwd,
+    auth_plugin='mysql_native_password',
+    database=database
+  )
+  mycursor = conn.cursor()
+  try:
+    mycursor.execute(sql)
+  except mysql.connector.Error as err:
+    connectorErrors(err)
+  conn.close()
+
+def DBquery(database, sql):
   conn = mysql.connector.connect(
     host='localhost',
     user=config.username,
@@ -38,6 +70,4 @@ def queryDB(database, sql):
   except mysql.connector.Error as err:
     connectorErrors(err)
   conn.close()
-  return 
-  
-def getUniqueListOfList(itemList)
+  return results

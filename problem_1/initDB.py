@@ -1,12 +1,4 @@
-import mysql.connector
-import config
-
-conn = mysql.connector.connect(
-  host='localhost',
-  user=config.username,
-  passwd=config.passwd,
-  auth_plugin='mysql_native_password'
-)
+from helper import DBinit
 
 DATABASE = 'BART_DATABASE'
 
@@ -29,12 +21,4 @@ initDB = f'''
   );
 '''
 
-mycursor = conn.cursor()
-try:
-  mycursor.execute(initDB)
-except mysql.connector.Error as err:
-    print(err)
-    print("Error Code:", err.errno)
-    print("SQLSTATE", err.sqlstate)
-    print("Message", err.msg)
-conn.close()
+DBinit(DATABASE, initDB)

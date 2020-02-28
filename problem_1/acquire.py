@@ -20,7 +20,6 @@ html = requests.get(bartMonthlyRidershipUrl)
 doc = lxml.html.fromstring(html.content)
 hrefs = doc.xpath('/html/body/pre/a/text()')
 xlxsFiles = [item for item in hrefs if '.xlsx' in item]
-print(xlxsFiles)
 
 # Save ridership xlsx files to bartMonthly dir
 fileLocation = []

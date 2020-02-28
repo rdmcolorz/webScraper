@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 import xlrd
 import os
-from helper import DBexecuteMany, queryDB
+from helper import DBexecuteMany, DBquery
 
 currPath = os.getcwd()
 DATABASE = 'BART_DATABASE'
@@ -31,7 +31,7 @@ def parseFile2DB(database, year, month, fileLocation):
   DBexecuteMany(database, sql, values)
 
 # get abbrev codings
-abbrev = queryDB(DATABASE, 'SELECT CODE, ID FROM T_BART_STATION')
+abbrev = DBquery(DATABASE, 'SELECT CODE, ID FROM T_BART_STATION')
 abbrevMapping = dict(abbrev)
 
 df = pd.read_json(currPath + '/bartMeta.json', orient='index')
