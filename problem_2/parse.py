@@ -105,3 +105,7 @@ sql = '''INSERT INTO T_PENSION_DETAIL
                                     AND T_EMPLOYMENT.EMPLOYER_ID = TEMP_W_ID.EMPLOYER_ID;
         '''
 DBexecute(DATABASE, sql)
+
+# delete T_TEMP
+sql = "DROP TABLE IF EXISTS T_TEMP;"
+DBinit(DATABASE, sql)
