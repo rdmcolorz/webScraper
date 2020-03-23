@@ -21,4 +21,4 @@ initDB = f'''
   );
 '''
 
-DBinit(DATABASE, initDB)
+DBinit(initDB)

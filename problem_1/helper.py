@@ -39,14 +39,12 @@ def DBexecute(database, sql):
     connectorErrors(err)
   conn.close()
 
-
-def DBinit(database, sql):
+def DBinit(sql):
   conn = mysql.connector.connect(
     host='localhost',
     user=config.username,
     passwd=config.passwd,
     auth_plugin='mysql_native_password',
-    database=database
   )
   mycursor = conn.cursor()
   try:
