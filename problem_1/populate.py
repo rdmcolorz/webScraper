@@ -17,7 +17,6 @@ def populate():
   df = pd.read_excel(abbrevPath)
   values = list(zip(df.index.values.tolist(), df.iloc[:, 1], df.iloc[:, 2]))
 
-
   # found missing values in station abbbreviations
   abbrevdf = pd.read_excel(abbrevPath)
   abbrevMapping = dict(zip(abbrevdf.iloc[:, 1], abbrevdf.index.values))

@@ -6,6 +6,7 @@ import os
 
 currPath = os.getcwd()
 fileDir = currPath + '/bartMonthly'
+bartMonthlyRidershipUrl = 'http://64.111.127.166/ridership/'
 
 try:
   os.mkdir(fileDir)
@@ -13,8 +14,6 @@ except OSError:
   print(f'--- Creation of directory {fileDir} failed. ---')
 else:
   print(f'--- Created {fileDir} ---')
-
-bartMonthlyRidershipUrl = 'http://64.111.127.166/ridership/'
 
 html = requests.get(bartMonthlyRidershipUrl)
 doc = lxml.html.fromstring(html.content)
