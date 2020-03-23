@@ -34,4 +34,4 @@ sql = f'''
     YEAR_OF_RETIREMENT INT
   );
 '''
-DBinit(DATABASE, sql)
+DBinit(sql)
